@@ -19,20 +19,37 @@ public class Hello {
         String name2 = in.nextLine();
         System.out.println(name+name2);
         System.out.println();
-        System.out.print("число1: ");
-        int x = in.nextInt();
-        System.out.print("число2: ");
-        int y = in.nextInt();
+
+        int y=0;
+        int x=0;
+        try {
+            System.out.print("число1: ");
+            x = in.nextInt();
+            System.out.print("число2: ");
+            y = in.nextInt();
+        } catch (java.util.InputMismatchException e) {
+            System.out.print("Где цифры?");
+        }
+        in.nextLine();
         System.out.print("выбери знак: ");
         String str3 = in.nextLine();
-        if (str3 == "+")
-            System.out.println(x + y);
-        else if (str3 == "-")
-            System.out.println(x - y);
-        else if (str3 == "*")
-            System.out.println(x * y);
-        else if (str3 == "/")
-            System.out.println(x / y);
+        switch (str3) {
+            case "+":
+                System.out.println(x + y);
+                break;
+            case "-":
+                System.out.println(x - y);
+                break;
+            case "*":
+                System.out.println(x * y);
+                break;
+            case "/":
+                System.out.println(x / y);
+                break;
+            default:
+                System.out.println("Попробуй заново");
+                break;
+        }
     }
 }
 
